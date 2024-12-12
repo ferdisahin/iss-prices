@@ -7,178 +7,249 @@ const ITEMS_PER_PAGE = 10;
 ---
 
 <div class="space-y-6">
-  <div class="flex items-center justify-between">
-    <div class="flex items-center gap-x-3">
-      <h2 class="text-base font-semibold leading-7 text-slate-900">İnternet Paketleri</h2>
-      <span class="rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20" id="visible-count">
-        {providers.length} paket
-      </span>
-    </div>
-    <div class="flex items-center gap-x-2">
-      <span class="text-sm text-slate-500">Sırala:</span>
-      <select
-        id="sort-select"
-        class="block rounded-md border-0 py-1.5 pl-3 pr-10 text-slate-900 ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6"
-      >
-        <option value="price-asc">Fiyat (Artan)</option>
-        <option value="price-desc">Fiyat (Azalan)</option>
-        <option value="speed-asc">Hız (Artan)</option>
-        <option value="speed-desc">Hız (Azalan)</option>
-      </select>
-    </div>
-  </div>
+	<div class="flex items-center justify-between">
+		<div class="flex items-center gap-x-3">
+			<h2 class="text-base font-semibold leading-7 text-slate-900">
+				İnternet Paketleri
+			</h2>
+			<span
+				class="rounded-full bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20"
+				id="visible-count">
+				{providers.length} paket
+			</span>
+		</div>
+		<div class="flex items-center gap-x-2">
+			<span class="text-sm text-slate-500">Sırala:</span>
+			<select
+				id="sort-select"
+				class="block rounded-md border-0 py-1.5 pl-3 pr-10 text-slate-900 ring-1 ring-inset ring-slate-300 focus:ring-2 focus:ring-blue-600 sm:text-sm sm:leading-6">
+				<option value="price-asc" selected>Fiyat (Artan)</option>
+				<option value="price-desc">Fiyat (Azalan)</option>
+				<option value="speed-asc">Hız (Artan)</option>
+				<option value="speed-desc">Hız (Azalan)</option>
+			</select>
+		</div>
+	</div>
 
-  <div id="provider-list" class="grid gap-6">
-    {providers.map((provider) => <ProviderCard provider={provider} />)}
-  </div>
+	<div
+		id="provider-list"
+		class="grid gap-6">
+		{providers.map((provider) => <ProviderCard provider={provider} />)}
+	</div>
 
-  <!-- Pagination -->
-  <div class="flex items-center justify-between border-t border-slate-200 bg-white px-4 py-3 sm:px-6">
-    <div class="flex flex-1 items-center justify-between">
-      <div>
-        <p class="text-sm text-slate-700" id="showing-info">
-          Toplam <span class="font-medium">{providers.length}</span> paketten
-          <span class="font-medium" id="showing-start">1</span>
-          -
-          <span class="font-medium" id="showing-end">{Math.min(ITEMS_PER_PAGE, providers.length)}</span>
-          arası gösteriliyor
-        </p>
-      </div>
-      <div>
-        <nav class="isolate inline-flex -space-x-px rounded-md shadow-sm" aria-label="Pagination" id="pagination">
-          <button
-            type="button"
-            class="relative inline-flex items-center rounded-l-md px-2 py-2 text-slate-400 ring-1 ring-inset ring-slate-300 hover:bg-slate-50 focus:z-20 focus:outline-offset-0"
-            id="prev-page"
-          >
-            <span class="sr-only">Önceki</span>
-            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z" clip-rule="evenodd" />
-            </svg>
-          </button>
-          <div id="page-numbers" class="flex"></div>
-          <button
-            type="button"
-            class="relative inline-flex items-center rounded-r-md px-2 py-2 text-slate-400 ring-1 ring-inset ring-slate-300 hover:bg-slate-50 focus:z-20 focus:outline-offset-0"
-            id="next-page"
-          >
-            <span class="sr-only">Sonraki</span>
-            <svg class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-              <path fill-rule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clip-rule="evenodd" />
-            </svg>
-          </button>
-        </nav>
-      </div>
-    </div>
-  </div>
+	<!-- No Results Message -->
+	<div
+		id="no-results"
+		class="hidden">
+		<div class="text-center py-12">
+			<div
+				class="inline-flex items-center justify-center w-12 h-12 rounded-full bg-yellow-100 mb-4">
+				<svg
+					class="w-6 h-6 text-yellow-600"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24">
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+					></path>
+				</svg>
+			</div>
+			<h3 class="text-lg font-semibold text-slate-900 mb-2">
+				Sonuç Bulunamadı
+			</h3>
+			<p class="text-slate-500">
+				Seçtiğiniz filtrelere uygun internet paketi bulunamadı. Lütfen
+				filtrelerinizi değiştirerek tekrar deneyin.
+			</p>
+		</div>
+	</div>
+
+	<!-- Pagination -->
+	<div
+		id="pagination-container"
+		class="flex items-center justify-between border-t border-slate-200 bg-white px-4 py-3 sm:px-6">
+		<div class="flex flex-1 items-center justify-between">
+			<div>
+				<p
+					class="text-sm text-slate-700"
+					id="showing-info">
+					Toplam <span class="font-medium">{providers.length}</span> paketten
+					<span
+						class="font-medium"
+						id="showing-start"
+						>1</span
+					>
+					-
+					<span
+						class="font-medium"
+						id="showing-end"
+						>{Math.min(ITEMS_PER_PAGE, providers.length)}</span
+					>
+					arası gösteriliyor
+				</p>
+			</div>
+			<div>
+				<nav
+					class="isolate inline-flex -space-x-px rounded-md shadow-sm"
+					aria-label="Pagination"
+					id="pagination">
+					<button
+						type="button"
+						class="relative inline-flex items-center rounded-l-md px-2 py-2 text-slate-400 ring-1 ring-inset ring-slate-300 hover:bg-slate-50 focus:z-20 focus:outline-offset-0"
+						id="prev-page">
+						<span class="sr-only">Önceki</span>
+						<svg
+							class="h-5 w-5"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							aria-hidden="true">
+							<path
+								fill-rule="evenodd"
+								d="M12.79 5.23a.75.75 0 01-.02 1.06L8.832 10l3.938 3.71a.75.75 0 11-1.04 1.08l-4.5-4.25a.75.75 0 010-1.08l4.5-4.25a.75.75 0 011.06.02z"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+					</button>
+					<div
+						id="page-numbers"
+						class="flex">
+					</div>
+					<button
+						type="button"
+						class="relative inline-flex items-center rounded-r-md px-2 py-2 text-slate-400 ring-1 ring-inset ring-slate-300 hover:bg-slate-50 focus:z-20 focus:outline-offset-0"
+						id="next-page">
+						<span class="sr-only">Sonraki</span>
+						<svg
+							class="h-5 w-5"
+							viewBox="0 0 20 20"
+							fill="currentColor"
+							aria-hidden="true">
+							<path
+								fill-rule="evenodd"
+								d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
+								clip-rule="evenodd"
+							></path>
+						</svg>
+					</button>
+				</nav>
+			</div>
+		</div>
+	</div>
 </div>
 
 <script>
-  const ITEMS_PER_PAGE = 10;
-  let currentPage = 1;
-  const providerList = document.getElementById("provider-list");
-  const providerCards = document.querySelectorAll(".provider-card");
-  const sortSelect = document.getElementById("sort-select");
-  const prevButton = document.getElementById("prev-page");
-  const nextButton = document.getElementById("next-page");
-  const pageNumbers = document.getElementById("page-numbers");
-  const visibleCountElement = document.getElementById("visible-count");
+	const ITEMS_PER_PAGE = 10;
+	let currentPage = 1;
+	const providerList = document.getElementById("provider-list");
+	const providerCards = document.querySelectorAll(".provider-card");
+	const sortSelect = document.getElementById("sort-select");
+	const prevButton = document.getElementById("prev-page");
+	const nextButton = document.getElementById("next-page");
+	const pageNumbers = document.getElementById("page-numbers");
+	const visibleCountElement = document.getElementById("visible-count");
 
-  // Update showing info
-  function updateShowingInfo(start, end, total) {
-    const showingInfo = document.getElementById("showing-info");
-    const showingStart = document.getElementById("showing-start");
-    const showingEnd = document.getElementById("showing-end");
+	// Update showing info
+	function updateShowingInfo(start, end, total) {
+		const showingInfo = document.getElementById("showing-info");
+		const showingStart = document.getElementById("showing-start");
+		const showingEnd = document.getElementById("showing-end");
 
-    if (showingInfo && showingStart && showingEnd) {
-      showingStart.textContent = start.toString();
-      showingEnd.textContent = end.toString();
-    }
+		if (showingInfo && showingStart && showingEnd) {
+			showingStart.textContent = start.toString();
+			showingEnd.textContent = end.toString();
+		}
 
-    if (visibleCountElement) {
-      visibleCountElement.textContent = `${total} paket`;
-    }
-  }
+		if (visibleCountElement) {
+			visibleCountElement.textContent = `${total} paket`;
+		}
+	}
 
-  // Update pagination
-  function updatePagination(totalItems) {
-    const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
-    pageNumbers.innerHTML = "";
+	// Update pagination
+	function updatePagination(totalItems) {
+		const totalPages = Math.ceil(totalItems / ITEMS_PER_PAGE);
+		pageNumbers.innerHTML = "";
 
-    for (let i = 1; i <= totalPages; i++) {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = `relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
-        i === currentPage
-          ? "z-10 bg-blue-600 text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
-          : "text-slate-900 ring-1 ring-inset ring-slate-300 hover:bg-slate-50 focus:z-20 focus:outline-offset-0"
-      }`;
-      button.textContent = i.toString();
-      button.addEventListener("click", () => showPage(i));
-      pageNumbers.appendChild(button);
-    }
+		for (let i = 1; i <= totalPages; i++) {
+			const button = document.createElement("button");
+			button.type = "button";
+			button.className = `relative inline-flex items-center px-4 py-2 text-sm font-semibold ${
+				i === currentPage
+					? "z-10 bg-blue-600 text-white focus:z-20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
+					: "text-slate-900 ring-1 ring-inset ring-slate-300 hover:bg-slate-50 focus:z-20 focus:outline-offset-0"
+			}`;
+			button.textContent = i.toString();
+			button.addEventListener("click", () => showPage(i));
+			pageNumbers.appendChild(button);
+		}
 
-    prevButton.disabled = currentPage === 1;
-    nextButton.disabled = currentPage === totalPages;
+		prevButton.disabled = currentPage === 1;
+		nextButton.disabled = currentPage === totalPages;
 
-    prevButton.classList.toggle("cursor-not-allowed", currentPage === 1);
-    nextButton.classList.toggle("cursor-not-allowed", currentPage === totalPages);
-  }
+		prevButton.classList.toggle("cursor-not-allowed", currentPage === 1);
+		nextButton.classList.toggle(
+			"cursor-not-allowed",
+			currentPage === totalPages,
+		);
+	}
 
-  // Show page
-  function showPage(page) {
-    currentPage = page;
-    const visibleCards = Array.from(providerCards).filter(
-      (card) => card.style.display !== "none"
-    );
-    const start = (page - 1) * ITEMS_PER_PAGE;
-    const end = Math.min(start + ITEMS_PER_PAGE, visibleCards.length);
+	// Show page
+	function showPage(page) {
+		currentPage = page;
+		const visibleCards = Array.from(providerCards).filter(
+			(card) => card.style.display !== "none",
+		);
+		const start = (page - 1) * ITEMS_PER_PAGE;
+		const end = Math.min(start + ITEMS_PER_PAGE, visibleCards.length);
 
-    visibleCards.forEach((card, index) => {
-      if (index >= start && index < end) {
-        card.classList.remove("hidden");
-      } else {
-        card.classList.add("hidden");
-      }
-    });
+		visibleCards.forEach((card, index) => {
+			if (index >= start && index < end) {
+				card.classList.remove("hidden");
+			} else {
+				card.classList.add("hidden");
+			}
+		});
 
-    updateShowingInfo(start + 1, end, visibleCards.length);
-    updatePagination(visibleCards.length);
-  }
+		updateShowingInfo(start + 1, end, visibleCards.length);
+		updatePagination(visibleCards.length);
+	}
 
-  // Sort providers
-  function sortProviders(sortBy) {
-    const cards = Array.from(providerCards);
-    const sortedCards = cards.sort((a, b) => {
-      const priceA = parseFloat(a.querySelector("[data-price]").dataset.price);
-      const priceB = parseFloat(b.querySelector("[data-price]").dataset.price);
-      const speedA = parseInt(a.querySelector("[data-speed]").dataset.speed);
-      const speedB = parseInt(b.querySelector("[data-speed]").dataset.speed);
+	// Sort providers
+	function sortProviders(sortBy) {
+		const cards = Array.from(providerCards);
+		const sortedCards = cards.sort((a, b) => {
+			const priceA = parseFloat(a.getAttribute("data-price"));
+			const priceB = parseFloat(b.getAttribute("data-price"));
+			const speedA = parseInt(a.getAttribute("data-download-speed"));
+			const speedB = parseInt(b.getAttribute("data-download-speed"));
 
-      switch (sortBy) {
-        case "price-asc":
-          return priceA - priceB;
-        case "price-desc":
-          return priceB - priceA;
-        case "speed-asc":
-          return speedA - speedB;
-        case "speed-desc":
-          return speedB - speedA;
-        default:
-          return 0;
-      }
-    });
+			switch (sortBy) {
+				case "price-asc":
+					return priceA - priceB;
+				case "price-desc":
+					return priceB - priceA;
+				case "speed-asc":
+					return speedA - speedB;
+				case "speed-desc":
+					return speedB - speedA;
+				default:
+					return 0;
+			}
+		});
 
-    providerList.innerHTML = "";
-    sortedCards.forEach((card) => providerList.appendChild(card));
-    showPage(1);
-  }
+		providerList.innerHTML = "";
+		sortedCards.forEach((card) => providerList.appendChild(card));
+		showPage(1);
+	}
 
-  // Event listeners
-  sortSelect.addEventListener("change", (e) => sortProviders(e.target.value));
-  prevButton.addEventListener("click", () => showPage(currentPage - 1));
-  nextButton.addEventListener("click", () => showPage(currentPage + 1));
+	// Event listeners
+	sortSelect.addEventListener("change", (e) => sortProviders(e.target.value));
+	prevButton.addEventListener("click", () => showPage(currentPage - 1));
+	nextButton.addEventListener("click", () => showPage(currentPage + 1));
 
-  // Initialize
-  showPage(1);
+	// Initialize
+	sortProviders('price-asc');
+	showPage(1);
 </script>

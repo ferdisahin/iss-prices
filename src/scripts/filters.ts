@@ -78,6 +78,9 @@ document.addEventListener('DOMContentLoaded', () => {
   // Update filters
   function updateFilters() {
     const providerCards = document.querySelectorAll(".provider-card") as NodeListOf<HTMLElement>;
+    const noResultsElement = document.getElementById('no-results');
+    const paginationContainer = document.getElementById('pagination-container');
+    const providerList = document.getElementById('provider-list');
     let visibleCount = 0;
 
     providerCards.forEach(card => {
@@ -109,20 +112,39 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Feature filters
-      if (filters.features.setupFee && setupFee) isVisible = false;
+      if (filters.features.setupFee && !setupFee) isVisible = false;
       if (filters.features.edevlet && !edevlet) isVisible = false;
       if (filters.features.prepaid && !prepaid) isVisible = false;
-      if (filters.features.commitment && commitment) isVisible = false;
+      if (filters.features.commitment && !commitment) isVisible = false;
       if (filters.features.modem && !modem) isVisible = false;
 
       card.style.display = isVisible ? "" : "none";
       if (isVisible) visibleCount++;
     });
 
-    // Update visible count
     const visibleCountElement = document.getElementById("visible-count");
     if (visibleCountElement) {
       visibleCountElement.textContent = `${visibleCount} paket`;
+    }
+
+    // Show/hide no results message and pagination
+    if (noResultsElement && paginationContainer && providerList) {
+      if (visibleCount === 0) {
+        // Hiç sonuç yoksa
+        noResultsElement.classList.remove('hidden');
+        paginationContainer.classList.add('hidden');
+        providerList.classList.add('hidden');
+      } else if (visibleCount <= 10) {
+        // 10 veya daha az sonuç varsa
+        noResultsElement.classList.add('hidden');
+        paginationContainer.classList.add('hidden');
+        providerList.classList.remove('hidden');
+      } else {
+        // 10'dan fazla sonuç varsa
+        noResultsElement.classList.add('hidden');
+        paginationContainer.classList.remove('hidden');
+        providerList.classList.remove('hidden');
+      }
     }
 
     // Update pagination
