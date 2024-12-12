@@ -1,48 +1,76 @@
-# Astro Starter Kit: Basics
+# İnternet Fiyatları
 
-```sh
-npm create astro@latest -- --template basics
+Türkiye'deki internet servis sağlayıcılarının fiyatlarını ve özelliklerini karşılaştıabileceğiniz modern bir web uygulaması.
+
+![İnternet Fiyatları Screenshot](screenshot.png)
+
+## Özellikler
+
+- **Hız Filtresi**: İndirme ve yükleme hızına göre filtreleme
+- **Fiyat Filtresi**: Minimum ve maksimum fiyat aralığına göre filtreleme
+- **Özellik Filtreleri**: 
+  - Kurulum ücreti
+  - E-devlet
+  - Ön ödemeli
+  - Taahhüt
+  - Modem dahil
+- **Responsive Tasarım**: Tüm cihazlarda mükemmel görünüm
+- **Gelişmiş Arama**: Anlık filtreleme ve sonuç gösterimi
+- **Akıllı Sıralama**: Fiyat ve hıza göre sıralama seçenekleri
+
+## Teknolojiler
+
+- [Astro](https://astro.build) - Web framework
+- [TypeScript](https://www.typescriptlang.org) - Tip güvenli JavaScript
+- [Tailwind CSS](https://tailwindcss.com) - CSS framework
+
+## Kurulum
+
+1. Repoyu klonlayın:
+```bash
+git clone https://github.com/yourusername/iss-prices.git
+cd iss-prices
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
-
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
-
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+2. Bağımlılıkları yükleyin:
+```bash
+npm install
 ```
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+3. Geliştirme sunucusunu başlatın:
+```bash
+npm run dev
+```
 
-## 🧞 Commands
+4. Tarayıcınızda açın:
+```
+http://localhost:4321
+```
 
-All commands are run from the root of the project, from a terminal:
+## Production Build
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+Production build almak için:
 
-## 👀 Want to learn more?
+```bash
+npm run build
+```
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Build dosyaları `dist/` klasöründe oluşturulacaktır.
+
+## Katkıda Bulunma
+
+1. Fork yapın
+2. Feature branch oluşturun (`git checkout -b feature/amazing-feature`)
+3. Değişikliklerinizi commit edin (`git commit -m 'feat: Add amazing feature'`)
+4. Branch'inizi push edin (`git push origin feature/amazing-feature`)
+5. Pull Request açın
+
+## Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+
+## İletişim
+
+Ferdi Şahin - [@ferdisahin](https://twitter.com/ferdisahin)
+
+Proje Linki: [https://github.com/yourusername/iss-prices](https://github.com/yourusername/iss-prices)
