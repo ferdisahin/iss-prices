@@ -1,0 +1,82 @@
+{
+  "providers": [
+    {
+      "id": "1",
+      "name": "Turkcell Superonline",
+      "description": "Fiber internet paketi",
+      "downloadSpeed": 100,
+      "uploadSpeed": 20,
+      "setupFee": false,
+      "commitment": true,
+      "prepaid": false,
+      "modem": true,
+      "edevlet": true,
+      "price": 299.90
+    },
+    {
+      "id": "2",
+      "name": "Turknet",
+      "description": "Taahhütsüz fiber internet",
+      "downloadSpeed": 100,
+      "uploadSpeed": 20,
+      "setupFee": false,
+      "commitment": false,
+      "prepaid": true,
+      "modem": false,
+      "edevlet": true,
+      "price": 329.90
+    },
+    {
+      "id": "3",
+      "name": "TTNet",
+      "description": "VDSL internet paketi",
+      "downloadSpeed": 100,
+      "uploadSpeed": 20,
+      "setupFee": true,
+      "commitment": true,
+      "prepaid": false,
+      "modem": true,
+      "edevlet": true,
+      "price": 279.90
+    },
+    {
+      "id": "4",
+      "name": "Vodafone Net",
+      "description": "Fiber internet paketi",
+      "downloadSpeed": 100,
+      "uploadSpeed": 20,
+      "setupFee": false,
+      "commitment": true,
+      "prepaid": false,
+      "modem": true,
+      "edevlet": true,
+      "price": 289.90
+    },
+    {
+      "id": "5",
+      "name": "Millenicom",
+      "description": "Taahhütsüz fiber internet",
+      "downloadSpeed": 100,
+      "uploadSpeed": 20,
+      "setupFee": false,
+      "commitment": false,
+      "prepaid": true,
+      "modem": false,
+      "edevlet": true,
+      "price": 319.90
+    },
+    {
+      "id": "6",
+      "name": "D-Smart",
+      "description": "Fiber internet paketi",
+      "downloadSpeed": 100,
+      "uploadSpeed": 20,
+      "setupFee": true,
+      "commitment": true,
+      "prepaid": false,
+      "modem": true,
+      "edevlet": true,
+      "price": 309.90
+    }
+  ]
+}

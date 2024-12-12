@@ -1,0 +1,252 @@
+---
+---
+
+<div class="bg-white shadow-lg rounded-xl border border-slate-200">
+  <div class="border-b border-slate-200 px-6 py-5">
+    <div class="flex items-center gap-x-3">
+      <div class="p-2 bg-blue-50 rounded-lg">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-blue-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.293A1 1 0 013 6.586V4z" />
+        </svg>
+      </div>
+      <div>
+        <h3 class="text-base font-semibold leading-6 text-slate-900">Filtreler</h3>
+        <p class="mt-1 text-sm text-slate-500">İnternet sağlayıcılarını özelliklerine göre filtreleyin.</p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="px-6 py-5 space-y-6">
+    <!-- Speed Filters -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-x-3">
+        <div class="p-1.5 bg-indigo-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+          </svg>
+        </div>
+        <h4 class="text-sm font-medium text-slate-900">Hız Filtreleri</h4>
+      </div>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="relative rounded-lg border border-slate-200 shadow-sm focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500">
+          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </div>
+          <input
+            type="number"
+            name="download-speed"
+            id="download-speed"
+            class="block w-full border-0 bg-transparent py-2.5 pl-10 pr-3 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
+            placeholder="Min. indirme hızı (Mbps)"
+            data-filter="download-speed"
+          />
+        </div>
+        <div class="relative rounded-lg border border-slate-200 shadow-sm focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500">
+          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </div>
+          <input
+            type="number"
+            name="upload-speed"
+            id="upload-speed"
+            class="block w-full border-0 bg-transparent py-2.5 pl-10 pr-3 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
+            placeholder="Min. yükleme hızı (Mbps)"
+            data-filter="upload-speed"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Price Filter -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-x-3">
+        <div class="p-1.5 bg-green-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <h4 class="text-sm font-medium text-slate-900">Fiyat Filtreleri</h4>
+      </div>
+      <div class="grid grid-cols-1 gap-4 sm:grid-cols-2">
+        <div class="relative rounded-lg border border-slate-200 shadow-sm focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500">
+          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+            <span class="text-slate-500 sm:text-sm">₺</span>
+          </div>
+          <input
+            type="number"
+            name="price-min"
+            id="price-min"
+            class="block w-full border-0 bg-transparent py-2.5 pl-8 pr-3 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
+            placeholder="Min. aylık fiyat"
+            data-filter="price-min"
+          />
+        </div>
+        <div class="relative rounded-lg border border-slate-200 shadow-sm focus-within:border-blue-500 focus-within:ring-1 focus-within:ring-blue-500">
+          <div class="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
+            <span class="text-slate-500 sm:text-sm">₺</span>
+          </div>
+          <input
+            type="number"
+            name="price-max"
+            id="price-max"
+            class="block w-full border-0 bg-transparent py-2.5 pl-8 pr-3 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
+            placeholder="Max. aylık fiyat"
+            data-filter="price-max"
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature Toggles -->
+    <div class="space-y-4">
+      <div class="flex items-center gap-x-3">
+        <div class="p-1.5 bg-purple-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
+          </svg>
+        </div>
+        <h4 class="text-sm font-medium text-slate-900">Özellik Filtreleri</h4>
+      </div>
+      <div class="space-y-3">
+        <!-- E-Devlet -->
+        <div class="group relative">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              id="edevlet"
+              name="edevlet"
+              class="sr-only peer"
+              data-filter="edevlet"
+            />
+            <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            <span class="ms-3 text-sm font-medium text-slate-900 group-hover:text-blue-600">E-Devlet Başvurusu</span>
+          </label>
+          <div class="absolute left-0 -bottom-1 translate-y-full hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg py-1 px-2 z-10 w-48">
+            E-devlet üzerinden başvuru yapılabilen paketler
+          </div>
+        </div>
+
+        <!-- Setup Fee -->
+        <div class="group relative">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              id="setup-fee"
+              name="setup-fee"
+              class="sr-only peer"
+              data-filter="setup-fee"
+            />
+            <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            <span class="ms-3 text-sm font-medium text-slate-900 group-hover:text-blue-600">Kurulum Ücreti</span>
+          </label>
+          <div class="absolute left-0 -bottom-1 translate-y-full hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg py-1 px-2 z-10 w-48">
+            Kurulum ücreti olmayan paketler
+          </div>
+        </div>
+
+        <!-- Prepaid -->
+        <div class="group relative">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              id="prepaid"
+              name="prepaid"
+              class="sr-only peer"
+              data-filter="prepaid"
+            />
+            <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            <span class="ms-3 text-sm font-medium text-slate-900 group-hover:text-blue-600">Ön Ödemeli</span>
+          </label>
+          <div class="absolute left-0 -bottom-1 translate-y-full hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg py-1 px-2 z-10 w-48">
+            Ön ödemeli paketler
+          </div>
+        </div>
+
+        <!-- Commitment -->
+        <div class="group relative">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              id="commitment"
+              name="commitment"
+              class="sr-only peer"
+              data-filter="commitment"
+            />
+            <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            <span class="ms-3 text-sm font-medium text-slate-900 group-hover:text-blue-600">Taahhütsüz</span>
+          </label>
+          <div class="absolute left-0 -bottom-1 translate-y-full hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg py-1 px-2 z-10 w-48">
+            Taahhüt olmayan paketler
+          </div>
+        </div>
+
+        <!-- Modem -->
+        <div class="group relative">
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input
+              type="checkbox"
+              id="modem"
+              name="modem"
+              class="sr-only peer"
+              data-filter="modem"
+            />
+            <div class="w-11 h-6 bg-slate-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-blue-600"></div>
+            <span class="ms-3 text-sm font-medium text-slate-900 group-hover:text-blue-600">Modem Dahil</span>
+          </label>
+          <div class="absolute left-0 -bottom-1 translate-y-full hidden group-hover:block bg-slate-800 text-white text-xs rounded-lg py-1 px-2 z-10 w-48">
+            Modem dahil paketler
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-slate-50 px-6 py-4 border-t border-slate-200 rounded-b-xl">
+    <div class="flex items-center justify-between">
+      <button
+        type="button"
+        class="inline-flex items-center gap-x-2 text-sm font-semibold text-blue-600 hover:text-blue-500 focus:outline-none group"
+        onclick="window.resetFilters()"
+      >
+        <div class="p-1 rounded-md group-hover:bg-blue-50">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </div>
+        Filtreleri Sıfırla
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  function resetFilters() {
+    // Reset input fields
+    document.querySelectorAll('input[type="number"]').forEach((input) => {
+      input.value = '';
+    });
+
+    // Reset checkboxes
+    document.querySelectorAll('input[type="checkbox"]').forEach((checkbox) => {
+      checkbox.checked = false;
+    });
+
+    // Trigger filter update
+    document.dispatchEvent(new Event('filtersReset'));
+  }
+</script>
+
+<style>
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  input[type="number"] {
+    -moz-appearance: textfield;
+  }
+</style>

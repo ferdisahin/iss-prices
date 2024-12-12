@@ -1,0 +1,132 @@
+---
+interface Props {
+  provider: {
+    id: string;
+    name: string;
+    description: string;
+    downloadSpeed: number;
+    uploadSpeed?: number;
+    setupFee?: number;
+    commitment?: boolean;
+    prepaid?: boolean;
+    modem?: boolean;
+    edevlet?: boolean;
+    price: number;
+    url?: string;
+  };
+}
+
+const { provider } = Astro.props;
+---
+
+<div class="provider-card bg-white rounded-xl border border-slate-200 shadow-sm hover:shadow-lg transition-shadow duration-200"
+  data-download-speed={provider.downloadSpeed}
+  data-upload-speed={provider.uploadSpeed}
+  data-price={provider.price}
+  data-setup-fee={provider.setupFee}
+  data-edevlet={provider.edevlet}
+  data-prepaid={provider.prepaid}
+  data-commitment={provider.commitment}
+  data-modem={provider.modem}
+>
+  <div class="p-6">
+    <!-- Header -->
+    <div class="flex items-start justify-between">
+      <div class="flex-1">
+        <h3 class="text-lg font-semibold text-slate-900">{provider.name}</h3>
+        <p class="mt-1 text-sm text-slate-500">{provider.description}</p>
+      </div>
+      {provider.edevlet && (
+        <span class="inline-flex items-center gap-x-1.5 rounded-md bg-blue-50 px-2 py-1 text-xs font-medium text-blue-700 ring-1 ring-inset ring-blue-600/20">
+          <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          E-Devlet
+        </span>
+      )}
+    </div>
+
+    <!-- Features -->
+    <div class="mt-6 grid grid-cols-2 gap-4">
+      <!-- Download Speed -->
+      <div class="flex items-center gap-x-2">
+        <div class="p-1.5 bg-indigo-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-indigo-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-slate-700">{provider.downloadSpeed} Mbps</p>
+          <p class="text-xs text-slate-500">İndirme Hızı</p>
+        </div>
+      </div>
+
+      <!-- Upload Speed -->
+      {provider.uploadSpeed && (
+        <div class="flex items-center gap-x-2">
+          <div class="p-1.5 bg-green-50 rounded-lg">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-green-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+            </svg>
+          </div>
+          <div>
+            <p class="text-sm font-medium text-slate-700">{provider.uploadSpeed} Mbps</p>
+            <p class="text-xs text-slate-500">Yükleme Hızı</p>
+          </div>
+        </div>
+      )}
+
+      <!-- Setup Fee -->
+      <div class="flex items-center gap-x-2">
+        <div class="p-1.5 bg-amber-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-amber-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-slate-700">{provider.setupFee ? 'Var' : 'Yok'}</p>
+          <p class="text-xs text-slate-500">Kurulum Ücreti</p>
+        </div>
+      </div>
+
+      <!-- Commitment -->
+      <div class="flex items-center gap-x-2">
+        <div class="p-1.5 bg-purple-50 rounded-lg">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-purple-600" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+          </svg>
+        </div>
+        <div>
+          <p class="text-sm font-medium text-slate-700">{provider.commitment ? 'Var' : 'Yok'}</p>
+          <p class="text-xs text-slate-500">Taahhüt</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Price -->
+    <div class="mt-6 flex items-baseline justify-between border-t border-slate-200 pt-6">
+      <div>
+        <p class="text-2xl font-semibold tracking-tight text-slate-900">₺{provider.price}</p>
+        <p class="text-sm text-slate-500">Aylık</p>
+      </div>
+      <div class="flex items-center gap-x-3">
+        {provider.prepaid && (
+          <span class="inline-flex items-center gap-x-1.5 rounded-md bg-green-50 px-2 py-1 text-xs font-medium text-green-700 ring-1 ring-inset ring-green-600/20">
+            <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Ön Ödemeli
+          </span>
+        )}
+        {provider.modem && (
+          <span class="inline-flex items-center gap-x-1.5 rounded-md bg-purple-50 px-2 py-1 text-xs font-medium text-purple-700 ring-1 ring-inset ring-purple-600/20">
+            <svg class="h-3 w-3" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Modem Dahil
+          </span>
+        )}
+      </div>
+    </div>
+  </div>
+</div>
