@@ -28,7 +28,7 @@ Türkiye'deki internet servis sağlayıcılarının fiyatlarını ve özellikler
 
 1. Repoyu klonlayın:
 ```bash
-git clone https://github.com/yourusername/iss-prices.git
+git clone https://github.com/ferdisahin/iss-prices.git
 cd iss-prices
 ```
 
@@ -71,6 +71,6 @@ Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICE
 
 ## İletişim
 
-Ferdi Şahin - [@ferdisahin](https://twitter.com/ferdisahin)
+Ferdi Şahin - [@ferdisahin](https://instagram.com/ferdiisahin)
 
-Proje Linki: [https://github.com/yourusername/iss-prices](https://github.com/yourusername/iss-prices)
+Proje Linki: [https://github.com/ferdisahin/iss-prices](https://github.com/ferdisahin/iss-prices)
